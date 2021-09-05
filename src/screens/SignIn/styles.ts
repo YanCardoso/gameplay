@@ -6,19 +6,18 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: theme.colors.backgroundColor,
         
     },
 
     image: {
         width: '100%',
-        height: 360,
+        height: 380,
 
     },
 
     content: {
-        marginTop: '-20%',
-        padding: 50
+        marginTop: -40,
+        paddingHorizontal: 50
     },
 
     title: {
@@ -26,6 +25,8 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 40,
         marginBottom: 16,
+        fontFamily: theme.fonts.title700,
+        lineHeight: 40
 
     },
 
@@ -33,7 +34,10 @@ export const styles = StyleSheet.create({
         color: theme.colors.heading,
         fontSize: 15,
         textAlign: 'center',
-        marginBottom: 64
+        marginBottom: 64,
+        fontFamily: theme.fonts.title500,
+        lineHeight: 25
+
     }
 
 

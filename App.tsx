@@ -1,19 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { SignIn } from './src/screens/SingIn';
+import { useFonts } from 'expo-font';
+import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter';
+import { Rajdhani_500Medium, Rajdhani_700Bold } from '@expo-google-fonts/rajdhani';
+import AppLoading from 'expo-app-loading';
+
+import { StatusBar } from 'react-native';
+import { Background } from './src/components/Background';
+import { Routes } from './src/routes';
 
 export default function App() {
-  return (
-    <SignIn />
-  );
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_500Medium,
+    Rajdhani_500Medium,
+    Rajdhani_700Bold
+  });
+
+  if (!fontsLoaded) {
+    return (
+      <AppLoading />
+    )
+  } else {
+
+    return (
+      <Background>
+
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+
+        <Routes />
+
+      </Background>
+
+    );
+  }
+
+
+
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#2c2ce978',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
