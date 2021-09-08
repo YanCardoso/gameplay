@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, FlatList, Text } from 'react-native';
 import { Appointments } from '../../components/Appointments';
+import { Background } from '../../components/Background';
 import { ButtonAdd } from '../../components/ButtonAdd';
 import { CategorySelect } from '../../components/CategorySelect';
 import { ListDivider } from '../../components/ListDivider';
@@ -34,19 +35,7 @@ export function Home() {
             category: '1',
             date: '22/26 às 20:40h',
             description: 'Vamos jogar'
-        },
-        {
-            id: '3',
-            guild: {
-                id: '1',
-                name: 'Lolzin',
-                icon: null,
-                owner: false
-            },
-            category: '3',
-            date: '12/26 às 18:40h',
-            description: 'Vamos jogar'
-        },
+        }
 
 
 
@@ -57,7 +46,7 @@ export function Home() {
     }
 
     return (
-        <View>
+        <Background>
             <View style={styles.header}>
                 <Profile />
                 <ButtonAdd />
@@ -83,7 +72,7 @@ export function Home() {
                     showsVerticalScrollIndicator={false}
                 />
             </View>
-        </View>
+        </Background>
     );
 };
 

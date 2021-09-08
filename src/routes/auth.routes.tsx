@@ -12,16 +12,16 @@ const { Navigator, Screen } = createStackNavigator();
 export function AuthRoutes() {
     return (
 
+        <Background>
+            <Navigator
+                screenOptions={{
+                    headerShown: false,
+                    cardStyle: {
+                        backgroundColor: theme.colors.homebg,
 
-        <Navigator
-            screenOptions={{
-                headerShown: false,
-                cardStyle: {
-                    backgroundColor: theme.colors.homebg,
-
-                }
-            }}
-        >
+                    }
+                }}
+            >
                 <Screen
                     name="SignIn"
                     component={SignIn}
@@ -31,6 +31,7 @@ export function AuthRoutes() {
                     component={Home}
                 />
 
-        </Navigator>
+            </Navigator>
+        </Background>
     )
 }
