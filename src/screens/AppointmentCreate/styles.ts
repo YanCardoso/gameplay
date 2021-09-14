@@ -39,8 +39,8 @@ export const styles = StyleSheet.create({
         width: 64,
         height: 68,
         backgroundColor: theme.colors.secondary50,
-        borderWidth: 1,
         borderRadius: 8,
+        borderWidth: 1,
     },
 
     field: {
@@ -71,6 +71,6 @@ export const styles = StyleSheet.create({
 
     footer: {
         marginVertical: 20,
-        marginBottom: 56
+        marginBottom: 56,
     }
 });
