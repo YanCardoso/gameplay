@@ -3,7 +3,7 @@ import {Image} from 'react-native';
 import { styles } from './styles';
 
 export function GuildIcon() {
-    const uri = 'https://www.freepnglogos.com/uploads/discord-logo-png/concours-discord-cartes-voeux-fortnite-france-6.png'
+    const uri = 'https://media.pocketgamer.biz/2021/5/110514/discord-new-logo-2021-r225x.jpg'
 
     return (
         <Image 
