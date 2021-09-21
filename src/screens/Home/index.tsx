@@ -12,7 +12,7 @@ import { styles } from './styles';
 
 export function Home() {
     const [category, setCategory] = useState('');
-    const  navigation  = useNavigation();
+    const navigation = useNavigation();
 
     const appointments = [
         {
@@ -38,8 +38,8 @@ export function Home() {
             category: '1',
             date: '22/26 às 20:40h',
             description: 'Vamos jogar'
-        }
-
+        },
+        
 
 
     ]
@@ -67,25 +67,25 @@ export function Home() {
                 categorySelect={category}
                 setCategory={handleCategorySelect}
             />
-            <View style={styles.content}>
-                <ListHeader
-                    title={'Partidas agendadas'}
-                    subtitle={`Total 6`}
-                />
-                <FlatList
-                    data={appointments}
-                    keyExtractor={item => item.id}
-                    renderItem={({ item }) => (
-                        <Appointments 
-                            data={item} 
-                            onPress={handleAppointmentDetails}
-                        />
-                    )}
-                    ItemSeparatorComponent={() => <ListDivider />}
-                    style={styles.matches}
-                    showsVerticalScrollIndicator={false}
-                />
-            </View>
+
+            <ListHeader
+                title={'Partidas agendadas'}
+                subtitle={`Total 6`}
+            />
+            <FlatList
+                data={appointments}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => (
+                    <Appointments
+                        data={item}
+                        onPress={handleAppointmentDetails}
+                    />
+                )}
+                ItemSeparatorComponent={() => <ListDivider />}
+                style={styles.matches}
+                contentContainerStyle={{paddingBottom: 69}}
+                showsVerticalScrollIndicator={false}
+            />
         </Background>
     );
 };

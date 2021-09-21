@@ -7,6 +7,7 @@ import { CategorySelect } from '../../components/CategorySelect';
 import { Header } from '../../components/Header';
 import { styles } from './styles';
 import { theme } from '../../global/styles/theme';
+import { Background } from '../../components/Background';
 import { GuildIcon } from '../../components/GuildIcon';
 import { SmallInput } from '../../components/SmallInput';
 import { TextArea } from '../../components/TextArea';
@@ -24,11 +25,17 @@ export function AppointmentCreate() {
         setOpenGuildsModal(true)
     }
 
+    function handleCloseGuilds() {
+        setOpenGuildsModal(false)
+    }
+
     function handleGuildSelect(guildSelect: GuildProps) {
         setGuild(guildSelect);
         setOpenGuildsModal(false)
+    }
 
-        
+    function handleCategorySelect(categoryId: string) {
+        setCategory(categoryId);
     }
 
 
@@ -39,7 +46,8 @@ export function AppointmentCreate() {
             style={styles.container}
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
-            <ScrollView>
+            <Background>
+                <ScrollView>
                     <Header
                         title="Agendar partida"
                     />
@@ -48,7 +56,7 @@ export function AppointmentCreate() {
                     </Text>
                     <CategorySelect
                         hasCheckBox
-                        setCategory={setCategory}
+                        setCategory={handleCategorySelect}
                         categorySelect={category}
                     />
 
@@ -59,8 +67,8 @@ export function AppointmentCreate() {
 
                                 {
                                     guild.icon
-                                    ? <GuildIcon />
-                                    : <View style={styles.image} />
+                                        ? <GuildIcon />
+                                        : <View style={styles.image} />
                                 }
 
                                 <View style={styles.selectBody}>
@@ -80,7 +88,7 @@ export function AppointmentCreate() {
 
                         <View style={styles.field}>
                             <View>
-                                <Text style={styles.label}>
+                                <Text style={[styles.label, { marginBottom: 12 }]}>
                                     Dia e mês
                                 </Text>
                                 <View style={styles.colunm}>
@@ -93,7 +101,7 @@ export function AppointmentCreate() {
                             </View>
 
                             <View>
-                                <Text style={styles.label}>
+                                <Text style={[styles.label, { marginBottom: 12 }]}>
                                     Hora e minuto
                                 </Text>
                                 <View style={styles.colunm}>
@@ -123,13 +131,14 @@ export function AppointmentCreate() {
                             autoCorrect={false}
                         />
                         <View style={styles.footer}>
-                            <Button title="Agendar"/>
+                            <Button title="Agendar" />
                         </View>
 
                     </View>
-            </ScrollView>
+                </ScrollView>
+            </Background>
 
-            <ModalView visible={openGuildsModal}>
+            <ModalView visible={openGuildsModal} closeModal={handleCloseGuilds}>
                 <Guilds
                     handleGuildSelect={handleGuildSelect}
                 />
