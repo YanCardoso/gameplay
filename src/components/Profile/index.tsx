@@ -1,15 +1,30 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Alert } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import { useAuth } from '../../hooks/auth';
 import { Avatar } from '../Avatar';
 import { styles } from './styles';
 
 export function Profile() {
-    const { user } = useAuth()
+    const [logoutCount, setLogoutCount] = useState(0);
+    const { user, SingOut } = useAuth()
+
+    function handleLogout() {
+        setLogoutCount(logoutCount + 1)
+        if (logoutCount > 8 ) {
+            SingOut()
+            setLogoutCount(0)
+        }
+
+        console.log(logoutCount);
+        
+    }
 
     return (
         <View style={styles.container}>
-            <Avatar urlImage={user.avatar} />
+            <RectButton onPress={handleLogout}>
+                <Avatar urlImage={user.avatar} />
+            </RectButton>
 
             <View>
                 <View style={styles.user}>

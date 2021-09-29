@@ -7,6 +7,7 @@ import { AuthProvider } from './src/hooks/auth';
 import { StatusBar } from 'react-native';
 import { Background } from './src/components/Background';
 import { Routes } from './src/routes';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,6 +16,7 @@ export default function App() {
     Rajdhani_500Medium,
     Rajdhani_700Bold
   });
+
 
   if (!fontsLoaded) {
     return (
@@ -37,9 +39,6 @@ export default function App() {
 
     );
   }
-
-
-
 
 }
 

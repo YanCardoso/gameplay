@@ -7,7 +7,7 @@ import { styles } from './styles';
 export type MemberProps = {
     id: string;
     username: string;
-    avatarUrl: string;
+    avatar_url: string;
     status: string;
 }
 
@@ -18,9 +18,10 @@ type Props = {
 export function Member({ data }: Props) {
     const isOnline = data.status === 'online';
     const { on, primary } = theme.colors
+    
     return (
         <View style={styles.container}>
-            <Avatar urlImage={data.avatarUrl} />
+            <Avatar urlImage={data.avatar_url} />
 
             <View>
                 <Text style={styles.title}>
